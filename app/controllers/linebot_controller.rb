@@ -61,6 +61,8 @@ class LinebotController < ApplicationController
               "こんにちは。\n声をかけてくれてありがとう\n今日があなたにとっていい日になりますように(^^)"
           when /.*(小島|こじま|コジマ).*/
             push = "うんこ"
+          when /.*(なぽ|ナポ).*/
+            push = "なぽんたParty!始まるよ〜〜！"
 
           else
             per06to12 = doc.elements[xpath + 'info/rainfallchance/period[2]l'].text
