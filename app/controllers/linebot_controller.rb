@@ -70,6 +70,10 @@ class LinebotController < ApplicationController
             heisei_int = int_arr.join.to_i
             seireki_int = heisei_int - 12 + 2000
             push = "平成#{heisei_int}年は西暦#{seireki_int}年です！"
+          when /運勢/
+            fortune_arr = ["大吉", "吉", "中吉", "小吉", "末吉", "凶", "大凶"]
+            today_fortune = fortune_arr.sample
+            push = "今日の運勢は#{today_fortune}です！！頑張っていきましょう。"
 
           else
             per06to12 = doc.elements[xpath + 'info/rainfallchance/period[2]l'].text
