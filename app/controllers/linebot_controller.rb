@@ -63,6 +63,13 @@ class LinebotController < ApplicationController
             push = "うんこ"
           when /.*(なぽ|ナポ).*/
             push = "なぽんたParty!始まるよ〜〜！"
+          when /平成/
+            str_arr = input.split("")
+            int_arr = []
+            str_arr.map! {|x| int_arr << x if x =~ /[0-9]/ }
+            heisei_int = int_arr.join.to_i
+            seireki_int = heisei_int - 12 + 2000
+            push = "平成#{heisei_int}年は西暦#{seireki_int}年です！"
 
           else
             per06to12 = doc.elements[xpath + 'info/rainfallchance/period[2]l'].text
